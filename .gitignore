@@ -1,20 +1,2 @@
-
-server/node_modules
-
-# dependencies
-frontned/node_modules
-frontned/.pnp
-frontned/.pnp.js
-
-# testing
-frontned/coverage
-
-# production
-frontned/build
-
-# misc
-frontned/.DS_Store
-frontned/.env.local
-frontned/.env.development.local
-frontned/.env.test.local
-frontned/.env.production.local
+/server/node_modules
+/frontend/node_modules

@@ -1,21 +1,17 @@
 import express from "express";
 import { config } from "dotenv";
-import router from "./routes/PaymentRoute.js";
-import corse from 'cors';
-
-
-
+import paymentRoute from "./routes/paymentRoutes.js";
+import cors from "cors";
 config({ path: "./config/config.env" });
 
 export const app = express();
 
-app.use(corse());
-app.use(express.urlencoded({ extends: true }));
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/api", router);
+app.use("/api", paymentRoute);
 
-// razorpay key pass to frontend by url
-app.get('/api/getkey', (req, res) => {
-    res.status(200).json({ key: process.env.RAZORPAY_KEY_ID });
-});
+app.get("/api/getkey", (req, res) =>
+  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+);
